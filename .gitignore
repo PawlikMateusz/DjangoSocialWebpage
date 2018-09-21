@@ -1,0 +1,8 @@
+simplesocial/db.sqlite3
+simplesocial/accounts/__pycache__
+simplesocial/accounts/migrations
+simplesocial/groups/migrations
+simplesocial/groups/__pycache__
+simplesocial/posts/__pycache__
+simplesocial/posts/migrations
+simplesocial/simplesocial/__pycache__

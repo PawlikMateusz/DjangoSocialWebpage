@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Star Social</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'simplesocial/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'simplesocial/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}"">Star Social</a>
+      <button class=" navbar-toggler" type="button"
+                data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'posts:all' %}">Posts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'posts:create' %}">Create Post</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'groups:all' %}">Groups</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'groups:create' %}">Create Group</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'accounts:logout'  %}">Log out</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'groups:all' %}">Groups</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'accounts:login'  %}">Log in</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'accounts:signup'  %}">Sign up</a>
+                        </li>
+
+                        {% endif %}
+                    </ul>
+                </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container body_block">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'simplesocial/js/jquery.min.js' %}"></script>
+    <script src="{% static 'simplesocial/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+</html>
